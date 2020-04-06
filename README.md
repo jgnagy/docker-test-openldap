@@ -1,16 +1,12 @@
 # OpenLDAP Docker Image for testing
 
-![Docker Build Status](https://img.shields.io/docker/build/rroemhild/test-openldap.svg) ![Docker Stars](https://img.shields.io/docker/stars/rroemhild/test-openldap.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/rroemhild/test-openldap.svg)
-
 This image provides an OpenLDAP Server for testing LDAP applications, i.e. unit tests. The server is initialized with the example domain `planetexpress.com` with data from the [Futurama Wiki][futuramawikia].
 
-Parts of the image are based on the work from Nick Stenning [docker-slapd][slapd] and Bertrand Gouny [docker-openldap][openldap].
-
-The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit tests.
+Most of this image is based on the OUTSTANDING work of Nick Stenning [docker-slapd][slapd], Bertrand Gouny [docker-openldap][openldap], and Rafael Römhild [test-openldap][https://www.github.com/rroemhild/docker-test-openldap] .
 
 [slapd]: https://github.com/nickstenning/docker-slapd
 [openldap]: https://github.com/osixia/docker-openldap
-[flaskldapconn]: https://github.com/rroemhild/flask-ldapconn
+[test-openldap]: https://www.github.com/rroemhild/docker-test-openldap
 [futuramawikia]: http://futurama.wikia.com
 
 
@@ -20,12 +16,12 @@ The Flask extension [flask-ldapconn][flaskldapconn] use this image for unit test
 * Support for TLS (snake oil cert on build)
 * memberOf overlay support
 * MS-AD Style Groups support
+* POSIX attributes for use with RFC2307 LDAP clients (like `sssd`)
 * ~124MB images size (~40MB compressed)
-
 
 ## Usage
 
-```
+```sh
 docker pull rroemhild/test-openldap
 docker run --privileged -d -p 389:389 rroemhild/test-openldap
 ```
@@ -72,7 +68,10 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | title            | Professor |
 | uid              | professor |
 | userPassword     | professor |
-
+| gidNumber        | 100 |
+| homeDirectory    | /home/professor |
+| uidNumber        | 11106 |
+| loginShell       | /bin/bash |
 
 ### cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com
 
@@ -90,7 +89,10 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | ou               | Delivering Crew |
 | uid              | fry |
 | userPassword     | fry |
-
+| gidNumber        | 100 |
+| homeDirectory    | /home/fry |
+| uidNumber        | 11103 |
+| loginShell       | /bin/bash |
 
 ### cn=John A. Zoidberg,ou=people,dc=planetexpress,dc=com
 
@@ -109,6 +111,10 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | title            | Ph. D. |
 | uid              | zoidberg |
 | userPassword     | zoidberg |
+| gidNumber        | 100 |
+| homeDirectory    | /home/zoidberg |
+| uidNumber        | 11107 |
+| loginShell       | /bin/bash |
 
 ### cn=Hermes Conrad,ou=people,dc=planetexpress,dc=com
 
@@ -125,6 +131,10 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | ou               | Office Management |
 | uid              | hermes |
 | userPassword     | hermes |
+| gidNumber        | 100 |
+| homeDirectory    | /home/hermes |
+| uidNumber        | 11104 |
+| loginShell       | /bin/bash |
 
 ### cn=Turanga Leela,ou=people,dc=planetexpress,dc=com
 
@@ -142,6 +152,10 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | ou               | Delivering Crew |
 | uid              | leela |
 | userPassword     | leela |
+| gidNumber        | 100 |
+| homeDirectory    | /home/leela |
+| uidNumber        | 11105 |
+| loginShell       | /bin/bash |
 
 ### cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com
 
@@ -158,6 +172,10 @@ docker run --privileged -d -p 389:389 rroemhild/test-openldap
 | ou               | Delivering Crew |
 | uid              | bender |
 | userPassword     | bender |
+| gidNumber        | 100 |
+| homeDirectory    | /home/bender |
+| uidNumber        | 11102 |
+| loginShell       | /bin/bash |
 
 ### cn=Amy Wong+sn=Kroker,ou=people,dc=planetexpress,dc=com
 
@@ -174,6 +192,10 @@ Amy has a multi-valued DN
 | ou               | Intern |
 | uid              | amy |
 | userPassword     | amy |
+| gidNumber        | 100 |
+| homeDirectory    | /home/amy |
+| uidNumber        | 11101 |
+| loginShell       | /bin/bash |
 
 ### cn=admin_staff,ou=people,dc=planetexpress,dc=com
 
@@ -193,3 +215,13 @@ Amy has a multi-valued DN
 | member           | cn=Turanga Leela,ou=people,dc=planetexpress,dc=com |
 | member           | cn=Philip J. Fry,ou=people,dc=planetexpress,dc=com |
 | member           | cn=Bender Bending Rodríguez,ou=people,dc=planetexpress,dc=com |
+
+### cn=linuxusers,ou=unixgroups,dc=planetexpress,dc=com
+
+| Attribute        | Value            |
+| ---------------- | ---------------- |
+| objectClass      | posixGroup |
+| cn               | linuxusers |
+| memberUid        | fry |
+| memberUid        | leela |
+| memberUid        | professor |

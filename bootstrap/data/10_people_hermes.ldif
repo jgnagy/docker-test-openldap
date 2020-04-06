@@ -3,6 +3,11 @@ objectClass: top
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
+objectClass: posixAccount
+gidNumber: 100
+homeDirectory: /home/hermes
+uidNumber: 11104
+loginShell: /bin/bash
 cn: Hermes Conrad
 sn: Conrad
 description: Human

@@ -1,0 +1,8 @@
+dn: cn=linuxusers,ou=unixGroups,dc=planetexpress,dc=com
+objectClass: posixGroup
+objectClass: top
+cn: linuxusers
+gidnumber: 1101
+memberUid: fry
+memberUid: leela
+memberUid: professor

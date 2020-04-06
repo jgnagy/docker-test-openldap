@@ -3,6 +3,11 @@ objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
+objectClass: posixAccount
+gidNumber: 100
+homeDirectory: /home/fry
+uidNumber: 11103
+loginShell: /bin/bash
 cn: Philip J. Fry
 sn: Fry
 description: Human

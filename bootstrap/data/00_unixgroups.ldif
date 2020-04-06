@@ -1,0 +1,5 @@
+dn: ou=unixgroups,dc=planetexpress,dc=com
+objectClass: top
+objectClass: organizationalUnit
+description: Linux user groups
+ou: unixgroups

@@ -3,6 +3,11 @@ objectClass: top
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
+objectClass: posixAccount
+gidNumber: 100
+homeDirectory: /home/amy
+uidNumber: 11101
+loginShell: /bin/bash
 cn: Amy Wong
 sn: Kroker
 description: Human

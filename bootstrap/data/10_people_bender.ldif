@@ -4,6 +4,11 @@ objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
+objectClass: posixAccount
+gidNumber: 100
+homeDirectory: /home/bender
+uidNumber: 11102
+loginShell: /bin/bash
 cn:: QmVuZGVyIEJlbmRpbmcgUm9kcsOtZ3Vleg==
 sn:: Um9kcsOtZ3Vleg==
 description: Robot

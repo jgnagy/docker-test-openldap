@@ -3,6 +3,11 @@ objectClass: inetOrgPerson
 objectClass: organizationalPerson
 objectClass: person
 objectClass: top
+objectClass: posixAccount
+gidNumber: 100
+homeDirectory: /home/professor
+uidNumber: 11106
+loginShell: /bin/bash
 cn: Hubert J. Farnsworth
 sn: Farnsworth
 description: Human
