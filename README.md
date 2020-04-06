@@ -9,7 +9,6 @@ Most of this image is based on the OUTSTANDING work of Nick Stenning [docker-sla
 [test-openldap]: https://www.github.com/rroemhild/docker-test-openldap
 [futuramawikia]: http://futurama.wikia.com
 
-
 ## Features
 
 * Initialized with data from Futurama
