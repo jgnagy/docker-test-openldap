@@ -2,11 +2,11 @@
 
 This image provides an OpenLDAP Server for testing LDAP applications, i.e. unit tests. The server is initialized with the example domain `planetexpress.com` with data from the [Futurama Wiki][futuramawikia].
 
-Most of this image is based on the OUTSTANDING work of Nick Stenning [docker-slapd][slapd], Bertrand Gouny [docker-openldap][openldap], and Rafael Römhild [test-openldap][https://www.github.com/rroemhild/docker-test-openldap] .
+Most of this image is based on the OUTSTANDING work of Nick Stenning [docker-slapd][slapd], Bertrand Gouny [docker-openldap][openldap], and Rafael Römhild [docker-test-openldap][testldap] .
 
 [slapd]: https://github.com/nickstenning/docker-slapd
 [openldap]: https://github.com/osixia/docker-openldap
-[test-openldap]: https://www.github.com/rroemhild/docker-test-openldap
+[testldap]: https://www.github.com/rroemhild/docker-test-openldap
 [futuramawikia]: http://futurama.wikia.com
 
 ## Features
@@ -21,8 +21,8 @@ Most of this image is based on the OUTSTANDING work of Nick Stenning [docker-sla
 ## Usage
 
 ```sh
-docker pull rroemhild/test-openldap
-docker run --privileged -d -p 389:389 rroemhild/test-openldap
+docker pull jgnagy/testldap
+docker run --privileged -d -p 389:389 jgnagy/testldap
 ```
 
 ## Exposed ports
